@@ -1,38 +1,43 @@
-import java.util.List;
-import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class Network implements Runnable {
-    private BlockingQueue<Rumour> messageQueue;
+    private ConcurrentLinkedQueue<Rumour> messageQueue;
     private List<NodeProcess> nodeList;
     private Random rg;
-    public Network(BlockingQueue<Rumour> queue, List<NodeProcess> nodeList){
+    private int delayFrom;
+    private int delayTo;
+    private Timer timer;
+
+    public Network(ConcurrentLinkedQueue<Rumour> queue, List<NodeProcess> nodeList) {
+        this(queue, nodeList, 900, 200);
+    }
+
+    public Network(ConcurrentLinkedQueue<Rumour> queue, List<NodeProcess> nodeList, int delayFrom, int delayTo) {
         this.messageQueue = queue;
         this.nodeList = nodeList;
         this.rg = new Random(System.currentTimeMillis());
+        this.delayFrom = delayFrom;
+        this.delayTo = delayTo;
+        timer = new Timer();
     }
+
     public void run() {
-        while(!Thread.currentThread().isInterrupted()){
-            try {
-                Rumour rumour = messageQueue.take();
-                if(rumour != null){
-                    long delay = 900 + rg.nextInt(200);
-                    Timer timer = new Timer();
+        while (!Thread.currentThread().isInterrupted()) {
+                Rumour rumour = messageQueue.poll();
+                if (rumour != null) {
+                    long delay = this.delayFrom + rg.nextInt(this.delayTo);
                     timer.schedule(new TimerTask() {
                         @Override
                         public void run() {
                             Integer destinationId = rumour.getDestinationId();
-                            nodeList.get(destinationId).sendRumour();
-                            timer.cancel();
+                            nodeList.get(destinationId).receiveRumour();
                         }
                     }, delay);
-
                 }
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-            }
+
         }
+        timer.cancel();
     }
 }

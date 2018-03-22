@@ -14,12 +14,14 @@ public class NodeProcess extends Observable implements Runnable{
 
     private Integer id;
     private List<Integer> neighbours;
-    private BlockingQueue<Rumour> networkQueue;
+    private Queue<Rumour> networkQueue;
     private Random rg;
-    private AtomicBoolean hasRumour;
+    private Boolean hasRumour;
+    private int delayFrom;
+    private int delayTo;
 
     public boolean hasRumour() {
-        return hasRumour.get();
+        return hasRumour;
     }
 
     public void setHasRumour(boolean hasRumour) {
@@ -27,7 +29,7 @@ public class NodeProcess extends Observable implements Runnable{
             setChanged();
             notifyObservers(new Rumour(String.valueOf(System.nanoTime()), id));
         }
-        this.hasRumour.set(hasRumour);
+        this.hasRumour = hasRumour;
     }
     public List<Integer> getNeighbours(){
         return neighbours;
@@ -37,37 +39,43 @@ public class NodeProcess extends Observable implements Runnable{
         return id.toString();
     }
 
-    public NodeProcess(Integer id, List<Integer> neighbours, BlockingQueue<Rumour> networkQueue){
-         this.id = id;
-         this.neighbours = neighbours;
-         this.networkQueue = networkQueue;
-         rg = new Random(System.currentTimeMillis());
-         this.hasRumour = new AtomicBoolean(false);
+    public NodeProcess(Integer id, List<Integer> neighbours, Queue<Rumour> networkQueue){
+        this(id,neighbours,networkQueue,900,200);
+    }
+
+    public NodeProcess(Integer id, List<Integer> neighbours, Queue<Rumour> networkQueue, int delayFrom, int delayTo){
+        this.id = id;
+        this.neighbours = neighbours;
+        this.networkQueue = networkQueue;
+        rg = new Random(System.currentTimeMillis());
+        this.hasRumour = false;
+        this.delayFrom = delayFrom;
+        this.delayTo = delayTo;
     }
 
     public void run() {
         while(!Thread.currentThread().isInterrupted()){
             try {
-                sleep(900 + rg.nextInt(200));
+                sleep(delayFrom + rg.nextInt(delayTo));
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }
-            if(hasRumour.get()) {
+            if(hasRumour) {
 
                 int index = rg.nextInt(neighbours.size());
                 Integer neighbourId = neighbours.get(index);
                 networkQueue.add(new Rumour("Secret from" + id, neighbourId));
-                System.out.println("Sent from " + id + " to " + neighbourId + " at " + System.nanoTime());
-
             }
         }
     }
-    public void sendRumour(){
-        if(hasRumour.compareAndSet(false, true)){
+
+    public void receiveRumour(){
+        if(hasRumour == false){
+            System.out.println(id);
+            hasRumour = true;
             long time = System.nanoTime();
             setChanged();
             notifyObservers(new Rumour(String.valueOf(time), id));
-            System.out.println("Received at " + System.nanoTime() + " by " + id);
         }
     }
 

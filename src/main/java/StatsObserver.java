@@ -9,7 +9,7 @@ public class StatsObserver implements Observer {
     public AtomicInteger nNodesWithRumour;
     private int totalNodes;
     private List<Thread> threadList;
-    private ConcurrentLinkedQueue<Integer> spreadNodes;
+    private Queue<Integer> spreadNodes;
     public StatsObserver(int totalNodes, List<Thread> threadList) {
         this.totalNodes = totalNodes;
         nNodesWithRumour = new AtomicInteger(0);
@@ -19,10 +19,9 @@ public class StatsObserver implements Observer {
     @Override
     public void update(Observable o, Object arg) {
         nNodesWithRumour.incrementAndGet();
-        Rumour rumour = ((Rumour) arg);
-        spreadNodes.add(rumour.getDestinationId());
-        System.out.println(rumour.getMessage() + " " + rumour.getDestinationId());
-        System.out.println(nNodesWithRumour + " " + totalNodes);
+        Rumour rumour = (Rumour) arg;
+        int id = rumour.getDestinationId();
+        spreadNodes.add(id);
         if (nNodesWithRumour.get() >= totalNodes) {
             for (Thread thread : threadList) {
                 thread.interrupt();

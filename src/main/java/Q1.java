@@ -2,17 +2,24 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Q1 {
     public static void main(String[] args) {
+        if(args.length == 0){
+            throw new IllegalArgumentException("Provide filename and start node");
+        }
+        String fileName = args[0];
+        int startNode = 0;
+        try {
+            startNode = Integer.parseInt(args[1]);
+        } catch (NumberFormatException e) {
+            System.err.println("Argument" + args[1] + " must be an integer.");
+        }
 
-        String fileName = "src/q1.txt";
-        int startNode = 2;
-        BlockingQueue<Rumour> networkQueue = new LinkedBlockingQueue<>();
+        ConcurrentLinkedQueue<Rumour> networkQueue = new ConcurrentLinkedQueue<>();
         List<NodeProcess> nodeList = new ArrayList<>();
         try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
             stream.forEach((String line) -> {

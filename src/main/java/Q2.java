@@ -3,6 +3,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -19,9 +20,9 @@ public class Q2 {
                 + "node {size: 100px; fill-mode: plain;}"
                 + "node.red {fill-color: red;}"
                 + "node.green {fill-color: green;}");
-        String fileName = "src/q1.txt";
+        String fileName = "src/grid.txt";
         int startNode = 2;
-        BlockingQueue<Rumour> networkQueue = new LinkedBlockingQueue<>();
+        ConcurrentLinkedQueue<Rumour> networkQueue = new ConcurrentLinkedQueue<>();
         List<NodeProcess> nodeList = new ArrayList<>();
         List<Node> vizNodes = new ArrayList<>();
         try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
@@ -45,13 +46,7 @@ public class Q2 {
         } catch (IOException e) {
             e.printStackTrace();
         }
-//        graph.addEdge("01","0","1");
-//        //graph.addEdge("10","1","0");
-//        Edge e= vizNodes.get(1).getEdgeBetween("0");
-//        if(e==null)
-//            System.out.println("Null");
-//        else
-//            System.out.println(e.toString());
+
         for(NodeProcess n: nodeList){
             for(Integer neighb: n.getNeighbours()){
                 Edge edgeBetween = vizNodes.get(Integer.parseInt(n.getId())).getEdgeBetween(neighb.toString());
@@ -60,7 +55,7 @@ public class Q2 {
                 }
             }
         }
-        graph.display();
+        graph.display(true);
         Network network = new Network(networkQueue, nodeList);
         Thread networkThread = new Thread(network);
         networkThread.start();
