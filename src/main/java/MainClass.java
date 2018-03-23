@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class MainClass {
     public static void main(String[] args) {
         if(args[0].equals("q1")) {
@@ -8,6 +10,7 @@ public class MainClass {
         }
         else if(args[0].equals("q3")) {
            new Q3Helper(args, 0.05f);
+
         }
     }
 }

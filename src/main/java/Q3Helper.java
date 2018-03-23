@@ -4,11 +4,13 @@ import java.text.DecimalFormat;
 import java.util.Observable;
 import java.util.Observer;
 
-import javafx.scene.chart.LineChart;
+import org.graphstream.stream.sync.SourceTime;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.XYPlot;
+import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
 import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
@@ -44,7 +46,7 @@ public class Q3Helper implements Observer{
             long time = Long.parseLong(message[2]);
             int pos = (int) ((p -0.05f)/(0.05f));
             times[pos] = time;
-            System.out.println("p= " + df.format(observedP) + "Time: " + time);
+            System.out.println("p= " + df.format(observedP) + " Time: " + time);
         }
         else if(message[0].equals("Done")) {
             float observedP = Float.parseFloat(message[1]);
@@ -59,8 +61,7 @@ public class Q3Helper implements Observer{
             }
             else{
                 LineChart_AWT chart = new LineChart_AWT(
-                        "Running time" ,
-                        "Rumour spreading rumour time", times);
+                        "Running time" , times);
                 chart.displayAndSave();
             }
         }
@@ -70,17 +71,24 @@ public class Q3Helper implements Observer{
 class LineChart_AWT extends ApplicationFrame {
 
     private JFreeChart lineChart;
-    public LineChart_AWT( String applicationTitle , String chartTitle, long[] times ) {
+    public LineChart_AWT( String applicationTitle, long[] times ) {
         super(applicationTitle);
         XYDataset dataset = createDataset(times);
+
         lineChart = ChartFactory.createScatterPlot(
                 "Rumour Spreading Running Time",
-                "p", "Time", dataset);
+                "Time","p", dataset, PlotOrientation.HORIZONTAL, true, false, false);
         ChartPanel chartPanel = new ChartPanel( lineChart );
-        chartPanel.setPreferredSize( new java.awt.Dimension( 560 , 367 ) );
+        chartPanel.setPreferredSize( new java.awt.Dimension( 800 , 600 ) );
         setContentPane( chartPanel );
+
+        XYPlot plot = (XYPlot) lineChart.getPlot();
+        XYLineAndShapeRenderer renderer = new XYLineAndShapeRenderer();
+        renderer.setSeriesLinesVisible(0, true);
+        plot.setRenderer(renderer);
     }
     public void displayAndSave(){
+
         this.pack( );
         RefineryUtilities.centerFrameOnScreen( this );
         this.setVisible( true );
@@ -91,24 +99,23 @@ class LineChart_AWT extends ApplicationFrame {
         }
 
         File imageFile = new File("plots/rumourtime.png");
-        int width = 640;
-        int height = 480;
+        int width = 800;
+        int height = 600;
 
-//        try {
-//            ChartUtilities.saveChartAsPNG(imageFile, lineChart, width, height);
-//        } catch (IOException ex) {
-//            System.err.println(ex);
-//        }
+        try {
+            ChartUtilities.saveChartAsPNG(imageFile, lineChart, width, height);
+        } catch (IOException ex) {
+            System.err.println(ex);
+        }
 
     }
 
     private XYDataset createDataset(long[] times) {
         XYSeriesCollection dataset = new XYSeriesCollection();
-
-        XYSeries series1 = new XYSeries("Time", false);
+        XYSeries series1 = new XYSeries("Time", false, true);
         float p = 0.05f;
         for(long time: times){
-            series1.add(p, time);
+            series1.add(time, p);
             p += 0.05f;
         }
         dataset.addSeries(series1);

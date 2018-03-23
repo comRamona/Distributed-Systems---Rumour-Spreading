@@ -16,7 +16,7 @@ public class Network implements Runnable {
     }
 
     public Network(Queue<Rumour> queue, List<NodeProcess> nodeList, int delayFrom, int delayTo) {
-        this(queue, nodeList, 900, 200, 0);
+        this(queue, nodeList, delayFrom, delayTo, 0);
     }
 
     public Network(Queue<Rumour> queue, List<NodeProcess> nodeList, int delayFrom, int delayTo, double dropProbability) {
@@ -27,7 +27,7 @@ public class Network implements Runnable {
         this.delayFrom = delayFrom;
         this.delayTo = delayTo;
         timer = new Timer();
-        this.dropProbability = 0;
+        this.dropProbability = dropProbability;
     }
 
     public void run() {
@@ -39,21 +39,22 @@ public class Network implements Runnable {
                         double d = prg.nextDouble();
                         if (d < dropProbability) {
                             schedule = false;
+                            System.out.println("Dropped "+ dropProbability + "  " + d);
                         }
                     }
-                    if(schedule){
-                            long delay = this.delayFrom + rg.nextInt(this.delayTo);
+                    if(schedule) {
+                    long delay = this.delayFrom + rg.nextInt(this.delayTo);
                             timer.schedule(new TimerTask() {
                                 @Override
                                 public void run() {
-                                    Integer destinationId = rumour.getDestinationId();
-                                    nodeList.get(destinationId).receiveRumour();
-                                }
+                                        Integer destinationId = rumour.getDestinationId();
+                                        nodeList.get(destinationId).receiveRumour();
+                                    }
                             }, delay);
                         }
 
                 }
-        }
+    }
         timer.cancel();
     }
 }

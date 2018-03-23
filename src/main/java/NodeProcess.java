@@ -46,11 +46,16 @@ public class NodeProcess extends Observable implements Runnable{
                 Thread.currentThread().interrupt();
             }
             if(hasRumour) {
-
                 int index = rg.nextInt(neighbours.size());
                 Integer neighbourId = neighbours.get(index);
                 networkQueue.add(new Rumour("Secret from" + id, neighbourId));
             }
+            // constant delay to not hog the network
+//            try {
+//                sleep(delayFrom + delayTo);
+//            } catch (InterruptedException e) {
+//                Thread.currentThread().interrupt();
+//            }
         }
     }
     public void receiveRumour(){

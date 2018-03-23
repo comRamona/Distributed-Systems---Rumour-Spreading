@@ -4,6 +4,9 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingDeque;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -41,7 +44,7 @@ public class Q3 {
         if (!directory.exists())
             directory.mkdir();
 
-        Queue<Rumour> networkQueue = new LinkedList<>();
+        Queue<Rumour> networkQueue = new ConcurrentLinkedQueue<>();
         List<NodeProcess> nodeList = new ArrayList<>();
         try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
             stream.forEach((String line) -> {
@@ -60,17 +63,18 @@ public class Q3 {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        ExecutorService executor = Executors.newFixedThreadPool(nodeList.size() + 1);
         Network network = new Network(networkQueue, nodeList, delayFromFinal, delayPeriodFinal, p);
         Thread networkThread = new Thread(network);
-        networkThread.start();
-        List<Thread> nodeThreads = new LinkedList<>();
-        nodeThreads.add(networkThread);
-        PlottingObserver observer = new PlottingObserver(nodeList.size(), nodeThreads, p);
+        executor.submit(networkThread);
+        for (NodeProcess node : nodeList) {
+            Thread t = new Thread(node);
+            executor.submit(t);
+        }
+        PlottingObserver observer = new PlottingObserver(nodeList.size(), executor, p);
         for (NodeProcess node : nodeList) {
             node.addObserver(observer);
-            Thread t = new Thread(node);
-            t.start();
-            nodeThreads.add(t);
         }
         nodeList.get(startNode).receiveRumour();
         return observer;
