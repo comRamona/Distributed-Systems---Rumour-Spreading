@@ -2,7 +2,7 @@ import java.util.*;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class Network implements Runnable {
-    private Queue<Rumour> messageQueue;
+    private ConcurrentLinkedQueue<Rumour> messageQueue;
     private List<NodeProcess> nodeList;
     private Random rg;
     private Random prg;
@@ -11,15 +11,15 @@ public class Network implements Runnable {
     private Timer timer;
     private double dropProbability;
 
-    public Network(Queue<Rumour> queue, List<NodeProcess> nodeList) {
+    public Network(ConcurrentLinkedQueue<Rumour> queue, List<NodeProcess> nodeList) {
         this(queue, nodeList, 900, 200, 0);
     }
 
-    public Network(Queue<Rumour> queue, List<NodeProcess> nodeList, int delayFrom, int delayTo) {
+    public Network(ConcurrentLinkedQueue<Rumour> queue, List<NodeProcess> nodeList, int delayFrom, int delayTo) {
         this(queue, nodeList, delayFrom, delayTo, 0);
     }
 
-    public Network(Queue<Rumour> queue, List<NodeProcess> nodeList, int delayFrom, int delayTo, double dropProbability) {
+    public Network(ConcurrentLinkedQueue<Rumour> queue, List<NodeProcess> nodeList, int delayFrom, int delayTo, double dropProbability) {
         this.messageQueue = queue;
         this.nodeList = nodeList;
         this.rg = new Random(2018);
@@ -39,7 +39,6 @@ public class Network implements Runnable {
                         double d = prg.nextDouble();
                         if (d < dropProbability) {
                             schedule = false;
-                            System.out.println("Dropped "+ dropProbability + "  " + d);
                         }
                     }
                     if(schedule) {

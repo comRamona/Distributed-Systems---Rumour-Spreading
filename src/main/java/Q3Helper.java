@@ -62,7 +62,25 @@ public class Q3Helper implements Observer{
             else{
                 LineChart_AWT chart = new LineChart_AWT(
                         "Running time" , times);
-                chart.displayAndSave();
+                JFreeChart freeChart = chart.getLineChart();
+                chart.pack( );
+                RefineryUtilities.centerFrameOnScreen( chart );
+                chart.setVisible( true );
+
+                File directory = new File("plots");
+                if (! directory.exists()){
+                    directory.mkdir();
+                }
+
+                File imageFile = new File("plots/rumourtime.png");
+                int width = 800;
+                int height = 600;
+
+                try {
+                    ChartUtilities.saveChartAsPNG(imageFile, freeChart, width, height);
+                } catch (IOException ex) {
+                    System.err.println(ex);
+                }
             }
         }
     }
@@ -77,7 +95,7 @@ class LineChart_AWT extends ApplicationFrame {
 
         lineChart = ChartFactory.createScatterPlot(
                 "Rumour Spreading Running Time",
-                "Time","p", dataset, PlotOrientation.HORIZONTAL, true, false, false);
+                "Time","p", dataset, PlotOrientation.HORIZONTAL, false, true, false);
         ChartPanel chartPanel = new ChartPanel( lineChart );
         chartPanel.setPreferredSize( new java.awt.Dimension( 800 , 600 ) );
         setContentPane( chartPanel );
@@ -87,32 +105,14 @@ class LineChart_AWT extends ApplicationFrame {
         renderer.setSeriesLinesVisible(0, true);
         plot.setRenderer(renderer);
     }
-    public void displayAndSave(){
 
-        this.pack( );
-        RefineryUtilities.centerFrameOnScreen( this );
-        this.setVisible( true );
-
-        File directory = new File("plots");
-        if (! directory.exists()){
-            directory.mkdir();
-        }
-
-        File imageFile = new File("plots/rumourtime.png");
-        int width = 800;
-        int height = 600;
-
-        try {
-            ChartUtilities.saveChartAsPNG(imageFile, lineChart, width, height);
-        } catch (IOException ex) {
-            System.err.println(ex);
-        }
-
+    public JFreeChart getLineChart(){
+        return lineChart;
     }
 
     private XYDataset createDataset(long[] times) {
         XYSeriesCollection dataset = new XYSeriesCollection();
-        XYSeries series1 = new XYSeries("Time", false, true);
+        XYSeries series1 = new XYSeries("", false, true);
         float p = 0.05f;
         for(long time: times){
             series1.add(time, p);

@@ -34,7 +34,7 @@ public class Q3 {
                 System.err.println("Wrong delay format, expected two integers. Using default of 900-1100");
             }
         }
-        if (delayFrom == 0 || delayTo <= delayFrom) {
+        if (delayTo < delayFrom) {
             System.err.println("Delay should be positive. Using default.");
         }
         final int delayFromFinal = delayFrom;
@@ -44,7 +44,7 @@ public class Q3 {
         if (!directory.exists())
             directory.mkdir();
 
-        Queue<Rumour> networkQueue = new ConcurrentLinkedQueue<>();
+        ConcurrentLinkedQueue<Rumour> networkQueue = new ConcurrentLinkedQueue<>();
         List<NodeProcess> nodeList = new ArrayList<>();
         try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
             stream.forEach((String line) -> {

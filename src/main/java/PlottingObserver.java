@@ -22,6 +22,7 @@ public class PlottingObserver extends Observable implements Observer {
         this.p = p;
         DecimalFormat df = new DecimalFormat();
         df.setMaximumFractionDigits(2);
+        System.out.println(df.format(p));
     }
     @Override
     public void update(Observable o, Object arg) {
@@ -31,8 +32,8 @@ public class PlottingObserver extends Observable implements Observer {
         }
         Rumour rumour = (Rumour) arg;
         int id = rumour.getDestinationId();
-        //System.out.println(id);
-        if(nNodesWithRumour.get() >= totalNodes) {
+        System.out.println(id);
+        if(nNodesWithRumour.get() == totalNodes) {
 
             setChanged();
             notifyObservers("Time "+ p + " " + (System.currentTimeMillis() - startTime));
