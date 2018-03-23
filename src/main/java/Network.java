@@ -1,11 +1,8 @@
-import java.util.List;
-import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class Network implements Runnable {
-    private ConcurrentLinkedQueue<Rumour> messageQueue;
+    private Queue<Rumour> messageQueue;
     private List<NodeProcess> nodeList;
     private Random rg;
     private Random prg;
@@ -14,19 +11,19 @@ public class Network implements Runnable {
     private Timer timer;
     private double dropProbability;
 
-    public Network(ConcurrentLinkedQueue<Rumour> queue, List<NodeProcess> nodeList) {
+    public Network(Queue<Rumour> queue, List<NodeProcess> nodeList) {
         this(queue, nodeList, 900, 200, 0);
     }
 
-    public Network(ConcurrentLinkedQueue<Rumour> queue, List<NodeProcess> nodeList, int delayFrom, int delayTo) {
+    public Network(Queue<Rumour> queue, List<NodeProcess> nodeList, int delayFrom, int delayTo) {
         this(queue, nodeList, 900, 200, 0);
     }
 
-    public Network(ConcurrentLinkedQueue<Rumour> queue, List<NodeProcess> nodeList, int delayFrom, int delayTo, double dropProbability) {
+    public Network(Queue<Rumour> queue, List<NodeProcess> nodeList, int delayFrom, int delayTo, double dropProbability) {
         this.messageQueue = queue;
         this.nodeList = nodeList;
-        this.rg = new Random(System.currentTimeMillis());
-        this.prg = new Random((System.currentTimeMillis()));
+        this.rg = new Random(2018);
+        this.prg = new Random(2018);
         this.delayFrom = delayFrom;
         this.delayTo = delayTo;
         timer = new Timer();

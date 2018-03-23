@@ -76,6 +76,6 @@ public class Q1 {
             nodeThreads.add(t);
         }
         System.out.println("Started...");
-        nodeList.get(startNode).setHasRumour(true);
+        nodeList.get(startNode).receiveRumour();
     }
 }

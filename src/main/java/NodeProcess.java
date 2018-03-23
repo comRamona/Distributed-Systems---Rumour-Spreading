@@ -16,13 +16,6 @@ public class NodeProcess extends Observable implements Runnable{
         return hasRumour;
     }
 
-    public void setHasRumour(boolean hasRumour) {
-        if(hasRumour){
-            setChanged();
-            notifyObservers(new Rumour(String.valueOf(System.nanoTime()), id));
-        }
-        this.hasRumour = hasRumour;
-    }
     public List<Integer> getNeighbours(){
         return neighbours;
     }
@@ -39,7 +32,7 @@ public class NodeProcess extends Observable implements Runnable{
         this.id = id;
         this.neighbours = neighbours;
         this.networkQueue = networkQueue;
-        rg = new Random(System.currentTimeMillis());
+        rg = new Random(2018);
         this.hasRumour = false;
         this.delayFrom = delayFrom;
         this.delayTo = delayTo;

@@ -95,6 +95,6 @@ public class Q2 {
             t.start();
             nodeThreads.add(t);
         }
-        nodeList.get(startNode).setHasRumour(true);
+        nodeList.get(startNode).receiveRumour();
     }
 }

@@ -10,8 +10,8 @@ public class PlottingObserver extends Observable implements Observer {
     private int totalNodes;
     private List<Thread> threadList;
     private long startTime;
-    private double p;
-    public PlottingObserver(int totalNodes, List<Thread> threadList, double p) {
+    private float p;
+    public PlottingObserver(int totalNodes, List<Thread> threadList, float p) {
         System.out.println("Started");
         System.out.println("p=" + p);
         this.totalNodes = totalNodes;
@@ -22,15 +22,22 @@ public class PlottingObserver extends Observable implements Observer {
     }
     @Override
     public void update(Observable o, Object arg) {
-        nNodesWithRumour.incrementAndGet();
+        int n = nNodesWithRumour.incrementAndGet();
+        if(n==1){
+            this.startTime = System.currentTimeMillis();
+        }
         Rumour rumour = (Rumour) arg;
         int id = rumour.getDestinationId();
         System.out.println(id);
         if(nNodesWithRumour.get() >= totalNodes) {
             setChanged();
+            notifyObservers("Time "+ p + " " + (System.currentTimeMillis() - startTime));
             for (Thread thread : threadList) {
                 thread.interrupt();
             }
+            setChanged();
+            notifyObservers("Done "+ p );
+
         }
 
     }
