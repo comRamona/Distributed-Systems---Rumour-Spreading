@@ -1,7 +1,10 @@
 import org.graphstream.graph.Node;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.*;
+import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
+import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -31,13 +34,14 @@ public class VizObserver implements Observer {
             for (Thread thread : threadList) {
                 thread.interrupt();
             }
-        }
-        try(FileWriter writer = new FileWriter("src/output2.txt")){
-            for(Integer i: spreadNodes) {
-                writer.write(i.toString() + "\n");
+            try(FileWriter writer = new FileWriter("log/output.txt")){
+                for(Integer i: spreadNodes) {
+                    writer.write(i.toString() + "\n");
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("DONE");
         }
     }
 }

@@ -5,7 +5,6 @@ public class Rumour {
        this.message = message;
        this.destinationId = destinationId;
     }
-
     public String getMessage(){
         return message;
     }

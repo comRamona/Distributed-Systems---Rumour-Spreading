@@ -1,12 +1,4 @@
-import org.bouncycastle.crypto.prng.RandomGenerator;
-
 import java.util.*;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.stream.Stream;
 
 import static java.lang.Thread.sleep;
 
@@ -68,10 +60,8 @@ public class NodeProcess extends Observable implements Runnable{
             }
         }
     }
-
     public void receiveRumour(){
         if(hasRumour == false){
-            System.out.println(id);
             hasRumour = true;
             long time = System.nanoTime();
             setChanged();
