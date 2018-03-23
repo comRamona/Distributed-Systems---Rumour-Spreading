@@ -19,6 +19,11 @@ import org.jfree.ui.RefineryUtilities;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 
+/**
+ * Repeatedly runs the rumour spreading algorithm. It is an observer class waiting for the algorithm to terminate.
+ * Uppon termination, it increases the probability of dropping the message and rerun the experiment.
+ * When p reaches 0.95 it plots the results and saves the plot in plots/rumourtime.png
+ */
 public class Q3Helper implements Observer{
     float p;
     String[] args;
@@ -84,41 +89,42 @@ public class Q3Helper implements Observer{
             }
         }
     }
-}
 
-class LineChart_AWT extends ApplicationFrame {
+    private class LineChart_AWT extends ApplicationFrame {
 
-    private JFreeChart lineChart;
-    public LineChart_AWT( String applicationTitle, long[] times ) {
-        super(applicationTitle);
-        XYDataset dataset = createDataset(times);
+        private JFreeChart lineChart;
+        public LineChart_AWT( String applicationTitle, long[] times ) {
+            super(applicationTitle);
+            XYDataset dataset = createDataset(times);
 
-        lineChart = ChartFactory.createScatterPlot(
-                "Rumour Spreading Running Time",
-                "Time","p", dataset, PlotOrientation.HORIZONTAL, false, true, false);
-        ChartPanel chartPanel = new ChartPanel( lineChart );
-        chartPanel.setPreferredSize( new java.awt.Dimension( 800 , 600 ) );
-        setContentPane( chartPanel );
+            lineChart = ChartFactory.createScatterPlot(
+                    "Rumour Spreading Running Time",
+                    "Time","p", dataset, PlotOrientation.HORIZONTAL, false, true, false);
+            ChartPanel chartPanel = new ChartPanel( lineChart );
+            chartPanel.setPreferredSize( new java.awt.Dimension( 800 , 600 ) );
+            setContentPane( chartPanel );
 
-        XYPlot plot = (XYPlot) lineChart.getPlot();
-        XYLineAndShapeRenderer renderer = new XYLineAndShapeRenderer();
-        renderer.setSeriesLinesVisible(0, true);
-        plot.setRenderer(renderer);
-    }
-
-    public JFreeChart getLineChart(){
-        return lineChart;
-    }
-
-    private XYDataset createDataset(long[] times) {
-        XYSeriesCollection dataset = new XYSeriesCollection();
-        XYSeries series1 = new XYSeries("", false, true);
-        float p = 0.05f;
-        for(long time: times){
-            series1.add(time, p);
-            p += 0.05f;
+            XYPlot plot = (XYPlot) lineChart.getPlot();
+            XYLineAndShapeRenderer renderer = new XYLineAndShapeRenderer();
+            renderer.setSeriesLinesVisible(0, true);
+            plot.setRenderer(renderer);
         }
-        dataset.addSeries(series1);
-        return dataset;
+
+        public JFreeChart getLineChart(){
+            return lineChart;
+        }
+
+        private XYDataset createDataset(long[] times) {
+            XYSeriesCollection dataset = new XYSeriesCollection();
+            XYSeries series1 = new XYSeries("", false, true);
+            float p = 0.05f;
+            for(long time: times){
+                series1.add(time, p);
+                p += 0.05f;
+            }
+            dataset.addSeries(series1);
+            return dataset;
+        }
     }
 }
+

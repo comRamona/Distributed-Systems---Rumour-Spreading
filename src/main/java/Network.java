@@ -1,6 +1,9 @@
 import java.util.*;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
+/**
+ * Network class used to pass messages between threads. It uses a timer task to sim
+ */
 public class Network implements Runnable {
     private ConcurrentLinkedQueue<Rumour> messageQueue;
     private List<NodeProcess> nodeList;

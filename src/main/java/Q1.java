@@ -43,7 +43,7 @@ public class Q1 {
             directory.mkdir();
         }
 
-        // actual code
+        // construct graph
         ConcurrentLinkedQueue<Rumour> networkQueue = new ConcurrentLinkedQueue<>();
         List<NodeProcess> nodeList = new ArrayList<>();
         try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
@@ -63,6 +63,7 @@ public class Q1 {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        // start threads
         Network network = new Network(networkQueue, nodeList, delayFromFinal, delayPeriodFinal);
         Thread networkThread = new Thread(network);
         networkThread.start();

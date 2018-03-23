@@ -34,7 +34,7 @@ public class Q3 {
                 System.err.println("Wrong delay format, expected two integers. Using default of 900-1100");
             }
         }
-        if (delayTo < delayFrom) {
+        if (delayTo <= delayFrom) {
             System.err.println("Delay should be positive. Using default.");
         }
         final int delayFromFinal = delayFrom;

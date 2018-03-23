@@ -52,6 +52,7 @@ public class Q2 {
         ConcurrentLinkedQueue<Rumour> networkQueue = new ConcurrentLinkedQueue<>();
         List<NodeProcess> nodeList = new ArrayList<>();
         List<Node> vizNodes = new ArrayList<>();
+        // construct graph
         try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
             stream.forEach((String line) -> {
                 String[] nodes = line.split(":");
@@ -83,6 +84,7 @@ public class Q2 {
             }
         }
         graph.display(true);
+        // start treads
         Network network = new Network(networkQueue, nodeList, delayFromFinal, delayPeriodFinal);
         Thread networkThread = new Thread(network);
         networkThread.start();

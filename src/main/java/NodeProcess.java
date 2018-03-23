@@ -1,7 +1,12 @@
 import java.util.*;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 import static java.lang.Thread.sleep;
 
+/**
+ * Simulates an individual process which runs the push protocol every delay_interval seconds.
+ * It selects a random neighbour and sends the rumour using the network.
+ */
 public class NodeProcess extends Observable implements Runnable{
 
     private Integer id;
@@ -12,10 +17,6 @@ public class NodeProcess extends Observable implements Runnable{
     private int delayFrom;
     private int delayTo;
 
-    public boolean hasRumour() {
-        return hasRumour;
-    }
-
     public List<Integer> getNeighbours(){
         return neighbours;
     }
@@ -24,11 +25,7 @@ public class NodeProcess extends Observable implements Runnable{
         return id.toString();
     }
 
-    public NodeProcess(Integer id, List<Integer> neighbours, Queue<Rumour> networkQueue){
-        this(id,neighbours,networkQueue,900,200);
-    }
-
-    public NodeProcess(Integer id, List<Integer> neighbours, Queue<Rumour> networkQueue, int delayFrom, int delayTo){
+    public NodeProcess(Integer id, List<Integer> neighbours, ConcurrentLinkedQueue<Rumour> networkQueue, int delayFrom, int delayTo){
         this.id = id;
         this.neighbours = neighbours;
         this.networkQueue = networkQueue;
@@ -48,9 +45,8 @@ public class NodeProcess extends Observable implements Runnable{
             if(hasRumour) {
                 int index = rg.nextInt(neighbours.size());
                 Integer neighbourId = neighbours.get(index);
-                networkQueue.add(new Rumour("Secret from" + id, neighbourId));
+                networkQueue.add(new Rumour("Rumour from" + id, neighbourId));
             }
-            // constant delay to not hog the network
         }
     }
     public void receiveRumour(){
@@ -61,6 +57,4 @@ public class NodeProcess extends Observable implements Runnable{
             notifyObservers(new Rumour(String.valueOf(time), id));
         }
     }
-
-
 }

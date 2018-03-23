@@ -2,31 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1cc566b3-3e3e-4697-b1c7-5f8e233f0a52" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/${dir}/classes/LineChart_AWT.class" afterPath="$PROJECT_DIR$/${dir}/classes/LineChart_AWT.class" />
-      <change beforePath="$PROJECT_DIR$/${dir}/classes/MainClass.class" afterPath="$PROJECT_DIR$/${dir}/classes/MainClass.class" />
-      <change beforePath="$PROJECT_DIR$/${dir}/classes/Network.class" afterPath="$PROJECT_DIR$/${dir}/classes/Network.class" />
-      <change beforePath="$PROJECT_DIR$/${dir}/classes/NodeProcess.class" afterPath="$PROJECT_DIR$/${dir}/classes/NodeProcess.class" />
-      <change beforePath="$PROJECT_DIR$/${dir}/classes/PlottingObserver.class" afterPath="$PROJECT_DIR$/${dir}/classes/PlottingObserver.class" />
-      <change beforePath="$PROJECT_DIR$/${dir}/classes/Q3.class" afterPath="$PROJECT_DIR$/${dir}/classes/Q3.class" />
-      <change beforePath="$PROJECT_DIR$/${dir}/classes/Q3Helper.class" afterPath="$PROJECT_DIR$/${dir}/classes/Q3Helper.class" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/build/classes/MainClass.class" afterPath="$PROJECT_DIR$/build/classes/MainClass.class" />
-      <change beforePath="$PROJECT_DIR$/build/classes/Network$1.class" afterPath="$PROJECT_DIR$/build/classes/Network$1.class" />
+      <change beforePath="$PROJECT_DIR$/build/classes/LineChart_AWT.class" afterPath="" />
       <change beforePath="$PROJECT_DIR$/build/classes/Network.class" afterPath="$PROJECT_DIR$/build/classes/Network.class" />
       <change beforePath="$PROJECT_DIR$/build/classes/NodeProcess.class" afterPath="$PROJECT_DIR$/build/classes/NodeProcess.class" />
-      <change beforePath="$PROJECT_DIR$/build/classes/PlottingObserver.class" afterPath="$PROJECT_DIR$/build/classes/PlottingObserver.class" />
       <change beforePath="$PROJECT_DIR$/build/classes/Q1.class" afterPath="$PROJECT_DIR$/build/classes/Q1.class" />
       <change beforePath="$PROJECT_DIR$/build/classes/Q2.class" afterPath="$PROJECT_DIR$/build/classes/Q2.class" />
       <change beforePath="$PROJECT_DIR$/build/classes/Q3.class" afterPath="$PROJECT_DIR$/build/classes/Q3.class" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Q3Helper.class" afterPath="$PROJECT_DIR$/build/classes/Q3Helper.class" />
       <change beforePath="$PROJECT_DIR$/build/coursework-2.4.jar" afterPath="$PROJECT_DIR$/build/coursework-2.4.jar" />
       <change beforePath="$PROJECT_DIR$/build/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/build/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
+      <change beforePath="$PROJECT_DIR$/graphs/output.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/graphs/wattsstrogatza.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/log/output.txt" afterPath="$PROJECT_DIR$/log/output.txt" />
+      <change beforePath="$PROJECT_DIR$/log/output3.txt" afterPath="" />
       <change beforePath="$PROJECT_DIR$/plots/rumourtime.png" afterPath="$PROJECT_DIR$/plots/rumourtime.png" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Network.java" afterPath="$PROJECT_DIR$/src/main/java/Network.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/NodeProcess.java" afterPath="$PROJECT_DIR$/src/main/java/NodeProcess.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PlottingObserver.java" afterPath="$PROJECT_DIR$/src/main/java/PlottingObserver.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Q1.java" afterPath="$PROJECT_DIR$/src/main/java/Q1.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Q2.java" afterPath="$PROJECT_DIR$/src/main/java/Q2.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Q3.java" afterPath="$PROJECT_DIR$/src/main/java/Q3.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Q3Helper.java" afterPath="$PROJECT_DIR$/src/main/java/Q3Helper.java" />
     </list>
@@ -49,11 +43,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Q3.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Q3.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Q3.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="648">
-              <caret line="46" column="29" lean-forward="false" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
+            <state relative-caret-position="702">
+              <caret line="70" column="43" lean-forward="true" selection-start-line="70" selection-start-column="43" selection-end-line="70" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Q1.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Q1.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="568">
+              <caret line="65" column="24" lean-forward="false" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -62,62 +66,50 @@
       <file leaf-file-name="NodeProcess.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/NodeProcess.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Q3Helper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Q3Helper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="96" column="48" lean-forward="true" selection-start-line="96" selection-start-column="48" selection-end-line="96" selection-end-column="48" />
+            <state relative-caret-position="72">
+              <caret line="7" column="72" lean-forward="false" selection-start-line="7" selection-start-column="72" selection-end-line="7" selection-end-column="72" />
               <folding>
-                <element signature="e#3969#3970#0" expanded="true" />
-                <element signature="e#4001#4002#0" expanded="true" />
+                <element signature="e#601#602#0" expanded="true" />
+                <element signature="e#634#635#0" expanded="true" />
+                <element signature="e#662#663#0" expanded="true" />
+                <element signature="e#698#699#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fullyconnected.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/graphs/fullyconnected.txt">
+      <file leaf-file-name="Network.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Network.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1317">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="54">
+              <caret line="4" column="83" lean-forward="false" selection-start-line="4" selection-start-column="83" selection-end-line="4" selection-end-column="83" />
+              <folding>
+                <element signature="e#1826#2181#0" expanded="true" />
+                <element signature="e#2180#2181#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Q2.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Q2.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="514">
+              <caret line="86" column="23" lean-forward="false" selection-start-line="86" selection-start-column="23" selection-end-line="86" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="grid.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/graphs/grid.txt">
+      <file leaf-file-name="Q3Helper.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Q3Helper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlottingObserver.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/PlottingObserver.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="24" column="27" lean-forward="true" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StatsObserver.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/StatsObserver.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-158">
-              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-              <folding />
+            <state relative-caret-position="-1124">
+              <caret line="24" column="86" lean-forward="false" selection-start-line="24" selection-start-column="86" selection-end-line="24" selection-end-column="86" />
+              <folding>
+                <element signature="e#4354#4355#0" expanded="true" />
+                <element signature="e#4394#4395#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -142,11 +134,13 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/MainClass.java" />
-        <option value="$PROJECT_DIR$/src/main/java/NodeProcess.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Q3Helper.java" />
         <option value="$PROJECT_DIR$/src/main/java/PlottingObserver.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Network.java" />
         <option value="$PROJECT_DIR$/src/main/java/Q3.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Q2.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Q1.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Q3Helper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/NodeProcess.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Network.java" />
       </list>
     </option>
   </component>
@@ -184,7 +178,35 @@
             <path>
               <item name="DsCW" type="b2602c69:ProjectViewProjectNode" />
               <item name="DsCW" type="462c0819:PsiDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DsCW" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DsCW" type="462c0819:PsiDirectoryNode" />
               <item name="graphs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DsCW" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DsCW" type="462c0819:PsiDirectoryNode" />
+              <item name="log" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DsCW" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DsCW" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DsCW" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DsCW" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DsCW" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DsCW" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -468,7 +490,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18294658" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18294658" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -560,8 +582,8 @@
         <state relative-caret-position="846">
           <caret line="47" column="9" lean-forward="true" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
           <folding>
-            <element signature="e#3969#3970#0" expanded="true" />
-            <element signature="e#4001#4002#0" expanded="true" />
+            <element signature="e#4354#4355#0" expanded="true" />
+            <element signature="e#4394#4395#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -586,7 +608,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -602,7 +626,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="702">
           <caret line="39" column="37" lean-forward="false" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
-          <folding />
+          <folding>
+            <element signature="e#1826#2181#0" expanded="true" />
+            <element signature="e#2180#2181#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -610,22 +637,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Q1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Q2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -646,53 +657,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/StatsObserver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-158">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Q3Helper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="96" column="48" lean-forward="true" selection-start-line="96" selection-start-column="48" selection-end-line="96" selection-end-column="48" />
-          <folding>
-            <element signature="e#3969#3970#0" expanded="true" />
-            <element signature="e#4001#4002#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graphs/fullyconnected.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1317">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/graphs/grid.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/PlottingObserver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="24" column="27" lean-forward="true" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Network.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="17" column="40" lean-forward="false" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
           <folding />
         </state>
       </provider>
@@ -705,14 +673,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/NodeProcess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/graphs/barbell_graph">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -721,11 +681,128 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/graphs/fullyconnected.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-991">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graphs/wattsstrogatza.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graphs/output.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log/output3.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log/output.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graphs/wattstrogatz.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/PlottingObserver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="24" column="27" lean-forward="true" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/StatsObserver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="4" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Q2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="514">
+          <caret line="86" column="23" lean-forward="false" selection-start-line="86" selection-start-column="23" selection-end-line="86" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Q1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="568">
+          <caret line="65" column="24" lean-forward="false" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Q3.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="46" column="29" lean-forward="false" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
+        <state relative-caret-position="702">
+          <caret line="70" column="43" lean-forward="true" selection-start-line="70" selection-start-column="43" selection-end-line="70" selection-end-column="43" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/NodeProcess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="7" column="72" lean-forward="false" selection-start-line="7" selection-start-column="72" selection-end-line="7" selection-end-column="72" />
+          <folding>
+            <element signature="e#601#602#0" expanded="true" />
+            <element signature="e#634#635#0" expanded="true" />
+            <element signature="e#662#663#0" expanded="true" />
+            <element signature="e#698#699#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Network.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="4" column="83" lean-forward="false" selection-start-line="4" selection-start-column="83" selection-end-line="4" selection-end-column="83" />
+          <folding>
+            <element signature="e#1826#2181#0" expanded="true" />
+            <element signature="e#2180#2181#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Q3Helper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1124">
+          <caret line="24" column="86" lean-forward="false" selection-start-line="24" selection-start-column="86" selection-end-line="24" selection-end-column="86" />
+          <folding>
+            <element signature="e#4354#4355#0" expanded="true" />
+            <element signature="e#4394#4395#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
